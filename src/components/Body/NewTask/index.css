@@ -1,0 +1,59 @@
+/* form css  */
+
+.form-control:focus {
+	border: 0;
+	box-shadow: 0 0 0 0.2rem rgba(72, 72, 72, 0.6);
+}
+.custom-select:focus {
+	border: 0;
+	box-shadow: 0 0 0 0.2rem rgba(72, 72, 72, 0.6);
+}
+#newTask h2,
+#dashboard h2 {
+	color: orange;
+	border-bottom: 0.3rem dashed orange;
+	width: 30%;
+	padding: 0.5em 1em 0.5rem 0;
+	margin-bottom: 5rem;
+}
+#dashboard h2 {
+	width: 31%;
+}
+#newTask {
+	padding-top: 8rem;
+	padding-bottom: 2.5rem;
+	background-color: #93a7aa;
+}
+#newTask label i {
+	padding-right: 0.3rem;
+}
+.form-control {
+	width: 60%;
+}
+.alertMess p {
+	height: auto;
+	color: orange;
+	border-radius: 0.2rem;
+	box-shadow: 0.5rem 0.5rem 1rem rgba(100, 0, 0, 0.5);
+	text-align: center;
+	line-height: 3rem;
+	font-size: 1.2rem;
+	background-color: white;
+	margin-top: 1.5rem;
+}
+.alertMess i {
+	padding-right: 1rem;
+	color: orange;
+}
+.btn-primary {
+	margin-top: 2rem;
+	padding: 0.5rem 3rem;
+	background-color: orange !important;
+	border: none !important;
+	box-shadow: 0.2rem 0.3rem 1rem rgba(98, 99, 99);
+}
+.btn-primary.focus,
+.btn-primary:focus {
+	box-shadow: 0 0 0 0.2rem rgba(72, 72, 72, 0.6) !important;
+	color: rgb(72, 72, 72);
+}

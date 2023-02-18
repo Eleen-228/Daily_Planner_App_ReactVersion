@@ -1,0 +1,81 @@
+/* Dashboard CSS  */
+.dashboard {
+	padding-bottom: 5rem;
+}
+
+a {
+	color: white;
+}
+a:hover {
+	color: white;
+	text-decoration: none;
+}
+#taskList {
+	margin: 5rem auto 0;
+	width: 70%;
+}
+
+.contentWindow {
+	overflow: auto;
+	border: 0.1rem solid orange;
+	border-top: 0;
+	height: 30rem;
+	padding-top: 15px;
+	margin-bottom: 5rem;
+	background-color: #eee;
+}
+.contentWindow ul li {
+	margin: 0;
+	margin-bottom: 0.9rem;
+	background-color: #fff;
+	box-shadow: 0.3rem 0.3rem 0.4rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+.statusTab {
+	margin-bottom: 0;
+}
+.statusTab li {
+	width: 33.33%;
+}
+.statusTab li a {
+	display: inline-block;
+	border: 0.1rem solid orange;
+	border-radius: 1rem 1rem 0 0;
+	height: 2.5rem;
+	width: 100%;
+	text-align: center;
+	line-height: 2.5rem;
+	color: white;
+	background-color: rgb(97, 97, 97);
+}
+
+.statusTab .showContent {
+	border-bottom: 0;
+	background-color: #eee;
+	font-weight: bold;
+	color: #000000;
+}
+.statusTab li i {
+	padding-right: 0.3rem;
+}
+.cardAdded button {
+	margin: 0.3rem 0.1rem;
+}
+.cardAdded,
+.message {
+	border-radius: 0.6rem;
+	width: 100%;
+	padding: 1rem;
+	align-items: center;
+	justify-content: center;
+}
+.message {
+	display: flex;
+	height: 100%;
+}
+.message i {
+	padding-right: 0.3rem;
+	color: orange;
+}
+.btn.btn-warning {
+	color: #fff;
+}

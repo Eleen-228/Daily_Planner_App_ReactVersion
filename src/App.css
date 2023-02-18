@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: #8c9491;
+}
+i {
+	font-style: normal;
+}
+ul li {
+	list-style: none;
+	cursor: pointer;
+}
+@media screen and (max-width: 1188px) {
+	#taskList h2 {
+		width: 100%;
+	}
+	#newTask h2 {
+		width: 68%;
+	}
+}
+
+/* Responsive Css */
+@media screen and (max-width: 991px) {
+	.nav-link {
+		width: 40%;
+	}
+	.navbar-dark .navbar-nav .nav-link.active {
+		border-bottom: 0.2rem solid #fff;
+	}
+	#newTask h2,
+	#taskList h2 {
+		border-bottom: 0.3rem solid orange;
+	}
+}
+@media screen and (max-width: 828px) {
+	.cardAdded button {
+		margin: 0.1rem 0.1rem;
+	}
+	.cardAdded button span {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 627px) {
+	.statusTab li span {
+		display: none;
+	}
+}
+@media screen and (max-width: 619px) {
+	#newTask h2,
+	#taskList h2 {
+		font-size: 1.5rem;
+	}
+	.btn-primary {
+		margin-top: 3rem;
+		margin-left: 13rem;
+	}
+}

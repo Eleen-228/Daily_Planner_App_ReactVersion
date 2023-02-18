@@ -1,0 +1,19 @@
+/* navbar css  */
+h1 {
+	color: orange;
+}
+.navbar.bg-secondary {
+	background-color: #484848 !important;
+}
+.fa-calendar-alt:before,
+.fa-calendar-days:before,
+.fa-list-check:before,
+.fa-tasks:before {
+	padding-right: 0.2rem;
+}
+.nav-link {
+	margin-right: 1rem;
+}
+.navbar-dark .navbar-nav .nav-link.active {
+	border-bottom: 0.1rem dashed #fff;
+}
