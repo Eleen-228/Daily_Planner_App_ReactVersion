@@ -117,6 +117,10 @@ export default function NewTask() {
 		navigate('/done')
 		setDoneBtn(false)
 	}, [doneBtn])
+
+	useEffect(() => {
+		navigate('/')
+	}, [])
 	return (
 		<form className="col-12" id="newTask" ref={formRef}>
 			<h2>
