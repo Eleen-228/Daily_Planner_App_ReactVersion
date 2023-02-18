@@ -7,7 +7,7 @@ import App from './App'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
 	<React.StrictMode>
-		<BrowserRouter>
+		<BrowserRouter basename="/Daily_Planner_App_ReactVersion">
 			<App />
 		</BrowserRouter>
 	</React.StrictMode>
