@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import PubSub from 'pubsub-js'
 /* InProgress function component*/
 export default function InProgress() {
@@ -18,11 +17,7 @@ export default function InProgress() {
 			setInProgressList(inProgressData)
 		})
 	})
-	const navigate = useNavigate()
-	useEffect(() => {
-		/* navigate to inProgress tab when inProgress tab was active before page refresh*/
-		navigate('/inProgress')
-	}, [])
+
 	/* todo button function */
 	const handleTodo = Id => {
 		const cardToBeSwitched = inProgressListArray.find(inProgressItem => inProgressItem.taskId === Id)

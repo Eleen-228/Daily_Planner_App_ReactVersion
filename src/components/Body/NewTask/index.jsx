@@ -13,56 +13,54 @@ const doneInitialValue = JSON.parse(localStorage.getItem('doneList')) || []
 /* NewTask function component */
 export default function NewTask() {
 	/* get form DOM and taskStatus DOM using useRef hook  */
-	const formRef = useRef(null)
 	const taskStatusRef = useRef(null)
 
 	/* initializing 3 states using useState hook */
 	const [todo, setTodo] = useState(todoInitialValue)
 	const [inProgress, setInProgress] = useState(inProgressInitialValue)
 	const [done, setDone] = useState(doneInitialValue)
-	const [todoBtn, setTodoBtn] = useState(false)
-	const [inProgBtn, setInProgBtn] = useState(false)
-	const [doneBtn, setDoneBtn] = useState(false)
+	const [showTab, setShowTab] = useState(null)
 	const navigate = useNavigate()
 	/* declare and initializing 3 lists */
 
 	/* submit button function */
 	const handleAdd = e => {
+		console.log(e)
 		e.preventDefault()
 		let todoCard = {}
 		let inProgressCard = {}
 		let doneCard = {}
 		if (taskStatusRef.current.value === 'To Do') {
-			for (let i = 0; i < formRef.current.length - 1; i++) {
-				todoCard[formRef.current[i].id] = formRef.current[i].value
+			for (let i = 0; i < e.target.length - 1; i++) {
+				todoCard[e.target[i].id] = e.target[i].value
 			}
 			todoCard['taskId'] = nanoId()
 			todoList = todo
 			todoList.unshift(todoCard)
 			setTodo([...todoList])
-			setTodoBtn(true)
+			setShowTab('todoTab')
 		}
 		if (taskStatusRef.current.value === 'In Progress') {
-			for (let i = 0; i < formRef.current.length - 1; i++) {
-				inProgressCard[formRef.current[i].id] = formRef.current[i].value
+			for (let i = 0; i < e.target.length - 1; i++) {
+				inProgressCard[e.target[i].id] = e.target[i].value
 			}
 			inProgressCard['taskId'] = nanoId()
 			inProgressList = inProgress
 			inProgressList.unshift(inProgressCard)
 			setInProgress([...inProgressList])
-			setInProgBtn(true)
+			setShowTab('inProgressTab')
 		}
 		if (taskStatusRef.current.value === 'Done') {
-			for (let i = 0; i < formRef.current.length - 1; i++) {
-				doneCard[formRef.current[i].id] = formRef.current[i].value
+			for (let i = 0; i < e.target.length - 1; i++) {
+				doneCard[e.target[i].id] = e.target[i].value
 			}
 			doneCard['taskId'] = nanoId()
 			doneList = done
 			doneList.unshift(doneCard)
 			setDone([...doneList])
-			setDoneBtn(true)
+			setShowTab('doneTab')
 		}
-		formRef.current.reset()
+		e.target.reset()
 	}
 	useEffect(() => {
 		/* publish todo state to todo tab */
@@ -104,25 +102,23 @@ export default function NewTask() {
 	}, [todo, inProgress, done])
 	/* navigate to that particular status tab per task status added */
 	useEffect(() => {
-		navigate('/todo')
-		setTodoBtn(false)
-	}, [todoBtn])
+		switch (showTab) {
+			case 'todoTab':
+				navigate('/todo')
+				break
+			case 'inProgressTab':
+				navigate('/inProgress')
+				break
+			case 'doneTab':
+				navigate('/done')
+				break
+			default:
+				navigate('/todo')
+		}
+	}, [showTab])
 
-	useEffect(() => {
-		navigate('/inProgress')
-		setInProgBtn(false)
-	}, [inProgBtn])
-
-	useEffect(() => {
-		navigate('/done')
-		setDoneBtn(false)
-	}, [doneBtn])
-
-	useEffect(() => {
-		navigate('/')
-	}, [])
 	return (
-		<form className="col-12" id="newTask" ref={formRef} onSubmit={handleAdd}>
+		<form className="col-12" id="newTask" onSubmit={handleAdd}>
 			<h2>
 				<i className="fa-sharp fa-solid fa-calendar-days fa-2x"></i>
 				Add New Task
