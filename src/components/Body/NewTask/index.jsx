@@ -3,14 +3,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import PubSub from 'pubsub-js'
 import './index.css'
 const nanoId = require('nano-id')
-/* declare and initializing 3 lists */
-let todoList = []
-let inProgressList = []
-let doneList = []
-/* declare and initialize 3 state initial values */
-const todoInitialValue = JSON.parse(localStorage.getItem('todoList')) || []
-const inProgressInitialValue = JSON.parse(localStorage.getItem('inProgressList')) || []
-const doneInitialValue = JSON.parse(localStorage.getItem('doneList')) || []
+
 /* NewTask function component */
 export default function NewTask() {
 	/* get form DOM and taskStatus DOM using useRef hook  */
@@ -25,7 +18,14 @@ export default function NewTask() {
 	// const [inProgBtn, setInProgBtn] = useState(false)
 	// const [doneBtn, setDoneBtn] = useState(false)
 	// const navigate = useNavigate()
-
+	/* declare and initializing 3 lists */
+	let todoList = []
+	let inProgressList = []
+	let doneList = []
+	/* declare and initialize 3 state initial values */
+	const todoInitialValue = JSON.parse(localStorage.getItem('todoList')) || []
+	const inProgressInitialValue = JSON.parse(localStorage.getItem('inProgressList')) || []
+	const doneInitialValue = JSON.parse(localStorage.getItem('doneList')) || []
 	/* submit button function */
 	const handleAdd = e => {
 		e.preventDefault()
