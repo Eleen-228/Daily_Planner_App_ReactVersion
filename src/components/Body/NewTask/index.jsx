@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import PubSub from 'pubsub-js'
 import './index.css'
 const nanoId = require('nano-id')
@@ -24,7 +24,7 @@ export default function NewTask() {
 	// const [todoBtn, setTodoBtn] = useState(false)
 	// const [inProgBtn, setInProgBtn] = useState(false)
 	// const [doneBtn, setDoneBtn] = useState(false)
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 
 	/* submit button function */
 	const handleAdd = e => {
@@ -118,9 +118,9 @@ export default function NewTask() {
 	// 	setDoneBtn(false)
 	// }, [doneBtn])
 
-	useEffect(() => {
-		navigate('/')
-	}, [])
+	// useEffect(() => {
+	// 	navigate('/')
+	// }, [])
 	return (
 		<form className="col-12" id="newTask" ref={formRef}>
 			<h2>

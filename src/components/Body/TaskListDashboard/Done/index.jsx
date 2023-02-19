@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import PubSub from 'pubsub-js'
 /* Done function component */
 export default function Done() {
@@ -18,11 +18,11 @@ export default function Done() {
 			setDoneList(doneData)
 		})
 	})
-	const navigate = useNavigate()
-	useEffect(() => {
-		/* navigate to done tab when done tab was active before page refresh*/
-		navigate('/done')
-	}, [])
+	// const navigate = useNavigate()
+	// useEffect(() => {
+	// 	/* navigate to done tab when done tab was active before page refresh*/
+	// 	navigate('/done')
+	// }, [])
 	/* todo button function */
 	const handleTodo = Id => {
 		const cardToBeSwitched = doneListArray.find(doneItem => doneItem.taskId === Id)
