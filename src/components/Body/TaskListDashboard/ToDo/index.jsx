@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import PubSub from 'pubsub-js'
 import '../index.css'
 /* ToDo function component */
@@ -13,13 +14,17 @@ export default function ToDo() {
 	)
 	/* declare and initializing todo tab state */
 	const [todoListArray, setTodoList] = useState(JSON.parse(localStorage.getItem('todoList')) || [])
-
+	/* subscribe state data from NewTask component for todo list updates*/
 	useEffect(() => {
 		PubSub.subscribe('todoList', (_, todoData) => {
-			setTodoList(todoData) //直接传新的状态值就会把这个值更新为todoListArray的值
+			setTodoList(todoData)
 		})
 	})
-
+	/* navigate to todo tab when todo tab was active before page refresh  */
+	const navigate = useNavigate()
+	useEffect(() => {
+		navigate('/todo')
+	}, [])
 	/* inProgress button function */
 	const handleInProgress = Id => {
 		const cardToBeSwitched = todoListArray.find(todoItem => todoItem.taskId === Id)

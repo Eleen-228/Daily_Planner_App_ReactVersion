@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import PubSub from 'pubsub-js'
 /* InProgress function component*/
 export default function InProgress() {
@@ -12,12 +13,17 @@ export default function InProgress() {
 	)
 	/* declare and initializing inProgress tab state  */
 	const [inProgressListArray, setInProgressList] = useState(JSON.parse(localStorage.getItem('inProgressList')) || [])
+	/* subscribe state data from NewTask component for inProgress list updates*/
 	useEffect(() => {
 		PubSub.subscribe('inProgressList', (_, inProgressData) => {
 			setInProgressList(inProgressData)
 		})
 	})
-
+	/* navigate to inProgress tab when inProgress tab was active before page refresh  */
+	const navigate = useNavigate()
+	useEffect(() => {
+		navigate('/inProgress')
+	}, [])
 	/* todo button function */
 	const handleTodo = Id => {
 		const cardToBeSwitched = inProgressListArray.find(inProgressItem => inProgressItem.taskId === Id)

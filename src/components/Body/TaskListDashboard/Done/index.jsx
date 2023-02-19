@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import PubSub from 'pubsub-js'
 /* Done function component */
 export default function Done() {
@@ -12,12 +13,17 @@ export default function Done() {
 	)
 	/* declare and initializing done tab state  */
 	const [doneListArray, setDoneList] = useState(JSON.parse(localStorage.getItem('doneList')) || [])
+	/* subscribe state data from NewTask component for done list updates*/
 	useEffect(() => {
 		PubSub.subscribe('doneList', (_, doneData) => {
 			setDoneList(doneData)
 		})
 	})
-
+	/* navigate to done tab when done tab was active before page refresh  */
+	const navigate = useNavigate()
+	useEffect(() => {
+		navigate('/done')
+	}, [])
 	/* todo button function */
 	const handleTodo = Id => {
 		const cardToBeSwitched = doneListArray.find(doneItem => doneItem.taskId === Id)
