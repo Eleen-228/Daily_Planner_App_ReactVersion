@@ -104,7 +104,7 @@ export default function NewTask() {
 	}, [todo, inProgress, done])
 	/* navigate to that particular status tab per task status added */
 	useEffect(() => {
-		navigate('/#todo')
+		navigate('/todo')
 		setTodoBtn(false)
 	}, [todoBtn])
 
