@@ -21,9 +21,9 @@ export default function NewTask() {
 	const [todo, setTodo] = useState(todoInitialValue)
 	const [inProgress, setInProgress] = useState(inProgressInitialValue)
 	const [done, setDone] = useState(doneInitialValue)
-	const [todoBtn, setTodoBtn] = useState(false)
-	const [inProgBtn, setInProgBtn] = useState(false)
-	const [doneBtn, setDoneBtn] = useState(false)
+	// const [todoBtn, setTodoBtn] = useState(false)
+	// const [inProgBtn, setInProgBtn] = useState(false)
+	// const [doneBtn, setDoneBtn] = useState(false)
 	const navigate = useNavigate()
 
 	/* submit button function */
@@ -40,7 +40,7 @@ export default function NewTask() {
 			todoList = todo
 			todoList.unshift(todoCard)
 			setTodo([...todoList])
-			setTodoBtn(true)
+			// setTodoBtn(true)
 		}
 		if (taskStatusRef.current.value === 'In Progress') {
 			for (let i = 0; i < formRef.current.length - 1; i++) {
@@ -50,7 +50,7 @@ export default function NewTask() {
 			inProgressList = inProgress
 			inProgressList.unshift(inProgressCard)
 			setInProgress([...inProgressList])
-			setInProgBtn(true)
+			// setInProgBtn(true)
 		}
 		if (taskStatusRef.current.value === 'Done') {
 			for (let i = 0; i < formRef.current.length - 1; i++) {
@@ -60,7 +60,7 @@ export default function NewTask() {
 			doneList = done
 			doneList.unshift(doneCard)
 			setDone([...doneList])
-			setDoneBtn(true)
+			// setDoneBtn(true)
 		}
 		formRef.current.reset()
 	}
@@ -103,20 +103,20 @@ export default function NewTask() {
 		})
 	}, [todo, inProgress, done])
 	/* navigate to that particular status tab per task status added */
-	useEffect(() => {
-		navigate('/todo')
-		setTodoBtn(false)
-	}, [todoBtn])
+	// useEffect(() => {
+	// 	navigate('/todo')
+	// 	setTodoBtn(false)
+	// }, [todoBtn])
 
-	useEffect(() => {
-		navigate('/inProgress')
-		setInProgBtn(false)
-	}, [inProgBtn])
+	// useEffect(() => {
+	// 	navigate('/inProgress')
+	// 	setInProgBtn(false)
+	// }, [inProgBtn])
 
-	useEffect(() => {
-		navigate('/done')
-		setDoneBtn(false)
-	}, [doneBtn])
+	// useEffect(() => {
+	// 	navigate('/done')
+	// 	setDoneBtn(false)
+	// }, [doneBtn])
 
 	useEffect(() => {
 		navigate('/')
