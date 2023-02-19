@@ -1,9 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import PubSub from 'pubsub-js'
 import './index.css'
 const nanoId = require('nano-id')
-
+let todoList = []
+let inProgressList = []
+let doneList = []
+/* declare and initialize 3 state initial values */
+const todoInitialValue = JSON.parse(localStorage.getItem('todoList')) || []
+const inProgressInitialValue = JSON.parse(localStorage.getItem('inProgressList')) || []
+const doneInitialValue = JSON.parse(localStorage.getItem('doneList')) || []
 /* NewTask function component */
 export default function NewTask() {
 	/* get form DOM and taskStatus DOM using useRef hook  */
@@ -14,18 +20,12 @@ export default function NewTask() {
 	const [todo, setTodo] = useState(todoInitialValue)
 	const [inProgress, setInProgress] = useState(inProgressInitialValue)
 	const [done, setDone] = useState(doneInitialValue)
-	// const [todoBtn, setTodoBtn] = useState(false)
-	// const [inProgBtn, setInProgBtn] = useState(false)
-	// const [doneBtn, setDoneBtn] = useState(false)
-	// const navigate = useNavigate()
+	const [todoBtn, setTodoBtn] = useState(false)
+	const [inProgBtn, setInProgBtn] = useState(false)
+	const [doneBtn, setDoneBtn] = useState(false)
+	const navigate = useNavigate()
 	/* declare and initializing 3 lists */
-	let todoList = []
-	let inProgressList = []
-	let doneList = []
-	/* declare and initialize 3 state initial values */
-	const todoInitialValue = JSON.parse(localStorage.getItem('todoList')) || []
-	const inProgressInitialValue = JSON.parse(localStorage.getItem('inProgressList')) || []
-	const doneInitialValue = JSON.parse(localStorage.getItem('doneList')) || []
+
 	/* submit button function */
 	const handleAdd = e => {
 		e.preventDefault()
@@ -40,7 +40,7 @@ export default function NewTask() {
 			todoList = todo
 			todoList.unshift(todoCard)
 			setTodo([...todoList])
-			// setTodoBtn(true)
+			setTodoBtn(true)
 		}
 		if (taskStatusRef.current.value === 'In Progress') {
 			for (let i = 0; i < formRef.current.length - 1; i++) {
@@ -50,7 +50,7 @@ export default function NewTask() {
 			inProgressList = inProgress
 			inProgressList.unshift(inProgressCard)
 			setInProgress([...inProgressList])
-			// setInProgBtn(true)
+			setInProgBtn(true)
 		}
 		if (taskStatusRef.current.value === 'Done') {
 			for (let i = 0; i < formRef.current.length - 1; i++) {
@@ -60,7 +60,7 @@ export default function NewTask() {
 			doneList = done
 			doneList.unshift(doneCard)
 			setDone([...doneList])
-			// setDoneBtn(true)
+			setDoneBtn(true)
 		}
 		formRef.current.reset()
 	}
@@ -103,26 +103,26 @@ export default function NewTask() {
 		})
 	}, [todo, inProgress, done])
 	/* navigate to that particular status tab per task status added */
-	// useEffect(() => {
-	// 	navigate('/todo')
-	// 	setTodoBtn(false)
-	// }, [todoBtn])
+	useEffect(() => {
+		navigate('/#todo')
+		setTodoBtn(false)
+	}, [todoBtn])
 
-	// useEffect(() => {
-	// 	navigate('/inProgress')
-	// 	setInProgBtn(false)
-	// }, [inProgBtn])
+	useEffect(() => {
+		navigate('/inProgress')
+		setInProgBtn(false)
+	}, [inProgBtn])
 
-	// useEffect(() => {
-	// 	navigate('/done')
-	// 	setDoneBtn(false)
-	// }, [doneBtn])
+	useEffect(() => {
+		navigate('/done')
+		setDoneBtn(false)
+	}, [doneBtn])
 
-	// useEffect(() => {
-	// 	navigate('/')
-	// }, [])
+	useEffect(() => {
+		navigate('/')
+	}, [])
 	return (
-		<form className="col-12" id="newTask" ref={formRef}>
+		<form className="col-12" id="newTask" ref={formRef} onSubmit={handleAdd}>
 			<h2>
 				<i className="fa-sharp fa-solid fa-calendar-days fa-2x"></i>
 				Add New Task
@@ -172,7 +172,7 @@ export default function NewTask() {
 			</div>
 			<div className="form-group row justify-content-center">
 				<div className="col-sm-6 text-center">
-					<button type="submit" className="btn btn-primary forSubmit" onSubmit={handleAdd}>
+					<button type="submit" className="btn btn-primary forSubmit">
 						<i className="fa-sharp fa-solid fa-plus"></i>
 					</button>
 				</div>
