@@ -1,14 +1,13 @@
 /* Dashboard CSS  */
-.dashboard {
+#taskListDashboard {
 	padding-bottom: 5rem;
 }
-
-a {
-	color: white;
-}
-a:hover {
-	color: white;
-	text-decoration: none;
+#taskListDashboard h2 {
+	color: orange;
+	border-bottom: 0.3rem dashed orange;
+	width: 30%;
+	padding: 0.5em 1em 0.5rem 0;
+	margin-bottom: 5rem;
 }
 #taskList {
 	margin: 5rem auto 0;
@@ -46,6 +45,7 @@ a:hover {
 	line-height: 2.5rem;
 	color: white;
 	background-color: rgb(97, 97, 97);
+	text-decoration: none;
 }
 
 .statusTab .showContent {

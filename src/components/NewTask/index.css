@@ -8,16 +8,12 @@
 	border: 0;
 	box-shadow: 0 0 0 0.2rem rgba(72, 72, 72, 0.6);
 }
-#newTask h2,
-#dashboard h2 {
+#newTask h2 {
 	color: orange;
 	border-bottom: 0.3rem dashed orange;
 	width: 30%;
 	padding: 0.5em 1em 0.5rem 0;
 	margin-bottom: 5rem;
-}
-#dashboard h2 {
-	width: 31%;
 }
 #newTask {
 	padding-top: 8rem;

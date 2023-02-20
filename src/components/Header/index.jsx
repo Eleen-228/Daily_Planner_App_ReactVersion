@@ -11,28 +11,28 @@ export default function Header() {
 		if (anchorName === 'newTask') {
 			const anchorToElement = document.getElementById(anchorName)
 			if (anchorToElement) {
+				navLink.ownerDocument.anchors.taskList.classList.remove('active')
 				navLink.classList.add('active')
 				anchorToElement.scrollIntoView({ block: 'start', behavior: 'smooth' })
-				navLink.ownerDocument.anchors.taskList.classList.remove('active')
 			}
 		}
 		if (anchorName === 'taskList') {
 			const anchorToElement = document.getElementById(anchorName)
 			if (anchorToElement) {
+				navLink.ownerDocument.anchors.newTask.classList.remove('active')
 				navLink.classList.add('active')
 				anchorToElement.scrollIntoView({ block: 'start', behavior: 'smooth' })
-				navLink.ownerDocument.anchors.newTask.classList.remove('active')
 			}
 		}
 	}
 	useEffect(() => {
 		window.addEventListener('scroll', function () {
 			if (this.scrollY < newTaskRef.current.clientHeight) {
-				newTaskRef.current.classList.add('active')
 				taskListRef.current.classList.remove('active')
+				newTaskRef.current.classList.add('active')
 			} else if (this.scrollY >= newTaskRef.current.clientHeight) {
-				taskListRef.current.classList.add('active')
 				newTaskRef.current.classList.remove('active')
+				taskListRef.current.classList.add('active')
 			}
 		})
 	})
