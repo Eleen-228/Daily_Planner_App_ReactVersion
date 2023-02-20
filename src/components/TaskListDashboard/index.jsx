@@ -5,9 +5,9 @@ import InProgress from './InProgress'
 import Done from './Done'
 import './index.css'
 
-export default function TaskListDashboard() {
+export default function TaskListDashboard({ id }) {
 	return (
-		<div id="dashboard" className="col-12">
+		<div className="col-12" id={id}>
 			<h2>
 				<i className="fa-sharp fa-solid fa-list-check fa-2x"></i>
 				Task List Dashboard

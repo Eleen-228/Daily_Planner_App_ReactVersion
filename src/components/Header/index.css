@@ -15,5 +15,5 @@ h1 {
 	margin-right: 1rem;
 }
 .navbar-dark .navbar-nav .nav-link.active {
-	border-bottom: 0.1rem dashed #fff;
+	border-bottom: dashed #fff;
 }
