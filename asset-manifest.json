@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Daily_Planner_App_ReactVersion/static/css/main.8eec8c88.css",
-    "main.js": "/Daily_Planner_App_ReactVersion/static/js/main.9b2fcdd5.js",
+    "main.css": "/Daily_Planner_App_ReactVersion/static/css/main.447c09ac.css",
+    "main.js": "/Daily_Planner_App_ReactVersion/static/js/main.4177ea8e.js",
     "index.html": "/Daily_Planner_App_ReactVersion/index.html",
-    "main.8eec8c88.css.map": "/Daily_Planner_App_ReactVersion/static/css/main.8eec8c88.css.map",
-    "main.9b2fcdd5.js.map": "/Daily_Planner_App_ReactVersion/static/js/main.9b2fcdd5.js.map"
+    "main.447c09ac.css.map": "/Daily_Planner_App_ReactVersion/static/css/main.447c09ac.css.map",
+    "main.4177ea8e.js.map": "/Daily_Planner_App_ReactVersion/static/js/main.4177ea8e.js.map"
   },
   "entrypoints": [
-    "static/css/main.8eec8c88.css",
-    "static/js/main.9b2fcdd5.js"
+    "static/css/main.447c09ac.css",
+    "static/js/main.4177ea8e.js"
   ]
 }
